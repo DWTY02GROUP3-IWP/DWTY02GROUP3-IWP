@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kinder Care</title>
 </head>
-
-<!-- ANIMATION -->
+<body>
+    
+    <!-- ANIMATION -->
 <!-- REFERENCE :
 (1)Reference : Magic Code, Retrieved March 10, 2025, Animated Nature website using Html & Css Only || How to create a website using Html [Video]. YouTube. https://www.youtube.com/watch?v=Tdzs82sDhZA
  -->
-
 <style type="text/css">
 *{
     padding: 0;
@@ -19,7 +19,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-#bodyanim {
+.bodyanim {
     overflow-x: hidden;
 }
 .home {
@@ -170,8 +170,8 @@ header nav a:hover::before {
 }
 
 </style>
-<body id="bodyanim">
-  <header>
+
+  <header class="bodyanim">
     <h1><img class="logo" src="https://www.zarla.com/images/zarla-kinder-care-1x1-2400x2400-20230802-m4p9j67dfdwxhxy8hcfj.png?crop=1:1,smart&width=250&dpr=2" alt="kindergarten-logo"></h1>
     <nav>
       <a href="#">Home</a>
@@ -180,7 +180,7 @@ header nav a:hover::before {
       <a href="#">Login</a>
     </nav>
   </header>
-  <section class="home">
+  <section class="home bodyanim">
       <div class="text-box">
       <h1>Tiny Hands</h1>
       <h1>Big <span>Dreams!</span></h1>
@@ -188,8 +188,7 @@ header nav a:hover::before {
       <button class="btn" type="button">Sign Up</button>
     </div>
   </section>
-    <img class="img" src="https://img.freepik.com/free-vector/hand-drawn-flat-people-hobbies_52683-70930.jpg" alt="images">
-</body>
+    <img class="img bodyanim" src="https://img.freepik.com/free-vector/hand-drawn-flat-people-hobbies_52683-70930.jpg" alt="images">
 
 
 <!-- DRAG AND DROP -->
@@ -238,7 +237,6 @@ header nav a:hover::before {
 
 </style>
 
-<body>
 <h1 class="bodydnd"> ✿ Kindergarten Class Schedule ✿ </h1>
 <div class="container">
     <div id="left">
@@ -268,6 +266,7 @@ header nav a:hover::before {
         <h3 class="bodydnd">Tuesday Schedule°❀.ೃ࿔*</h3>
     </div>
 </div>
+
 <script>
 let lists = document.getElementsByClassName("list");
 let rightBox = document.getElementById("right");
@@ -313,7 +312,6 @@ for(list of lists){
     })
 }
 </script>
-</body>
 
 
 <!-- GEOLOCATION -->
@@ -356,7 +354,7 @@ for(list of lists){
             margin: 0px auto;
         }
     </style>
-<body>
+
     <div></div>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -416,7 +414,6 @@ for(list of lists){
         initMap();
     };
     </script>
-</body>
 
 <!-- SERVER SIDE EVENTS -->
 <!-- REFERENCE :
@@ -474,8 +471,6 @@ for(list of lists){
             margin-bottom: 5px;
         }
     </style>
-</head>
-<body>
 
     <div class="box">
         <h3>Getting server updates...</h3>
