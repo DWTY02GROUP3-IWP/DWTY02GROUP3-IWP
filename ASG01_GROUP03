@@ -6,8 +6,8 @@
   <title>Kinder Care</title>
 </head>
 <body>
-    
-    <!-- ANIMATION -->
+
+<!-- ANIMATION -->
 <!-- REFERENCE :
 (1)Reference : Magic Code, Retrieved March 10, 2025, Animated Nature website using Html & Css Only || How to create a website using Html [Video]. YouTube. https://www.youtube.com/watch?v=Tdzs82sDhZA
  -->
@@ -474,12 +474,15 @@ for(list of lists){
 
     <div class="box">
         <h3>Getting server updates...</h3>
-        <div id="result"></div>
+        <div id="result">
+            <p><strong>Incoming messages:</strong> <span id="totalCount">0</span></p>
+        </div>
         <button class="btnsse" onclick="startSSE()">Start Receiving Updates</button>
     </div>
 
     <script>
         let eventSource = null;
+        let totalMessages = 0;
 
         function startSSE() {
             if (eventSource) {
@@ -491,6 +494,19 @@ for(list of lists){
             eventSource.onmessage = function(event) {
                 let message = event.data.trim();
                 console.log("RAW DATA:", message);
+
+                if (message.includes("#GROUP03")) {
+                    updateLog(message);
+                }
+            };
+
+            // To show the number of incoming messages
+            eventSource.onmessage = function(event) {
+                let message = event.data.trim();
+                console.log("RAW DATA:", message);
+
+                totalMessages++; // Increase the amount every time a message is received
+                document.getElementById("totalCount").textContent = totalMessages;
 
                 if (message.includes("#GROUP03")) {
                     updateLog(message);
