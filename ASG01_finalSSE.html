@@ -59,15 +59,19 @@
 <body>
     <div class="box">
         <h3>Getting server updates...</h3>
-        <div id="result"></div>
+        <div id="result">
+            <p><strong>Incoming messages:</strong> <span id="totalCount">0</span></p>
+        </div>
         <button class="btnsse" onclick="startSSE()">Start Receiving Updates</button>
     </div>
-<script>
+
+    <script>
         let eventSource = null;
+        let totalMessages = 0;
 
         function startSSE() {
             if (eventSource) {
-                eventSource.close();
+                eventSource.close(); // Close existing connection
             }
 
             eventSource = new EventSource("https://lms.pb.edu.bn/wy2301/sse.php");
@@ -75,6 +79,19 @@
             eventSource.onmessage = function(event) {
                 let message = event.data.trim();
                 console.log("RAW DATA:", message);
+
+                if (message.includes("#GROUP03")) {
+                    updateLog(message);
+                }
+            };
+
+            // To show the number of incoming messages
+            eventSource.onmessage = function(event) {
+                let message = event.data.trim();
+                console.log("RAW DATA:", message);
+
+                totalMessages++; // Increase the amount every time a message is received
+                document.getElementById("totalCount").textContent = totalMessages;
 
                 if (message.includes("#GROUP03")) {
                     updateLog(message);
@@ -98,9 +115,10 @@
             logContainer.scrollTop = logContainer.scrollHeight;
 
             if (logContainer.children.length > 20) {
-                logContainer.removeChild(logContainer.children[0]);
+                logContainer.removeChild(logContainer.children[0]); // Remove old logs
             }
         }
+
 </script>
 </body>
 </html>
